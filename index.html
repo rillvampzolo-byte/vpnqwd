@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="theme-color" content="#0a0a0a">
-    <title>SecureVPN • Premium Access</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <meta name="theme-color" content="#000000">
+    <title>SecureVPN • Luxury Access</title>
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
+    
+    <!-- Частицы фона -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Золотое свечение -->
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
     <div class="app">
         
+        <!-- Header -->
         <header class="header">
             <div class="header-content">
                 <div class="logo">
                     <div class="logo-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="url(#lg)"/>
-                            <defs><linearGradient id="lg" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient></defs>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="url(#shieldGrad)"/>
+                            <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs><linearGradient id="shieldGrad" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stop-color="#c9a84c"/><stop offset="100%" stop-color="#8b6914"/></linearGradient></defs>
                         </svg>
                     </div>
                     <div>
-                        <div class="logo-title">SecureVPN</div>
-                        <div class="logo-sub">Premium Access</div>
+                        <div class="logo-title">SECURE<span class="gold">VPN</span></div>
+                        <div class="logo-sub">Luxury Access</div>
                     </div>
                 </div>
                 <div class="status-pill">
@@ -30,50 +40,77 @@
             </div>
         </header>
 
+        <!-- Hero -->
         <section class="hero">
-            <div class="hero-badge">✨ Premium</div>
-            <h1 class="hero-title">Доступ<br><span class="gradient-text">нового уровня</span></h1>
-            <p class="hero-desc">Персональные конфигурации. Быстро, безопасно, безлимитно.</p>
+            <div class="hero-crown">👑</div>
+            <h1 class="hero-title">
+                Приватный<br><span class="gold-text">доступ</span>
+            </h1>
+            <p class="hero-desc">
+                Премиум конфигурации с максимальной скоростью. Никаких логов. Полная анонимность.
+            </p>
             <div class="hero-stats">
-                <div class="stat-item"><span class="stat-value">10</span><span class="stat-label">Gbps</span></div>
+                <div class="stat-item">
+                    <span class="stat-value">10<span class="gold">G</span></span>
+                    <span class="stat-label">Скорость</span>
+                </div>
                 <div class="stat-divider"></div>
-                <div class="stat-item"><span class="stat-value">0</span><span class="stat-label">Logs</span></div>
+                <div class="stat-item">
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Логов</span>
+                </div>
                 <div class="stat-divider"></div>
-                <div class="stat-item"><span class="stat-value">∞</span><span class="stat-label">Traffic</span></div>
+                <div class="stat-item">
+                    <span class="stat-value">∞</span>
+                    <span class="stat-label">Трафик</span>
+                </div>
             </div>
         </section>
 
+        <!-- Серверы -->
         <section class="servers-section">
             <div class="section-header">
-                <h2 class="section-title">Локации</h2>
+                <h2 class="section-title">✨ Локации</h2>
                 <div class="live-badge"><span class="live-dot"></span>Live</div>
             </div>
             <div class="servers-grid" id="serversGrid"></div>
         </section>
 
-        <section class="how-to">
-            <h2 class="section-title">Как подключиться</h2>
-            <div class="steps-horizontal">
-                <div class="step-card"><div class="step-icon-wrap"><span class="step-emoji">💳</span></div><h4>Оплатите</h4><p>В боте</p></div>
-                <div class="step-arrow">→</div>
-                <div class="step-card"><div class="step-icon-wrap"><span class="step-emoji">📋</span></div><h4>Скопируйте</h4><p>Ключ</p></div>
-                <div class="step-arrow">→</div>
-                <div class="step-card"><div class="step-icon-wrap"><span class="step-emoji">📱</span></div><h4>Вставьте</h4><p>В приложение</p></div>
+        <!-- Преимущества -->
+        <section class="features-grid-2">
+            <div class="feature-item">
+                <div class="feature-icon-wrap">🛡️</div>
+                <h4>Нулевое логирование</h4>
+                <p>Мы не храним логи. Даже если нас попросят — нам нечего показать.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon-wrap">⚡</div>
+                <h4>10 Gbps каналы</h4>
+                <p>Выделенные серверы с максимальной пропускной способностью.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon-wrap">🔐</div>
+                <h4>End-to-End</h4>
+                <p>Персональные ключи. Каждый пользователь — уникальная конфигурация.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon-wrap">🌍</div>
+                <h4>Все устройства</h4>
+                <p>HAPP, V2Box, Streisand, v2rayNG — любое приложение.</p>
             </div>
         </section>
 
-        <section class="apps-supported">
-            <h2 class="section-title">Приложения</h2>
-            <div class="apps-scroll">
-                <div class="app-chip">📦 HAPP</div>
-                <div class="app-chip">📁 V2Box</div>
-                <div class="app-chip">🎵 Streisand</div>
-                <div class="app-chip">🟣 v2rayNG</div>
-            </div>
+        <!-- Цитата -->
+        <section class="quote-card">
+            <div class="quote-icon">💎</div>
+            <p class="quote-text">Приватность — это не роскошь. Это необходимость.</p>
         </section>
 
+        <!-- Footer -->
         <footer class="footer">
-            <p>No logs • No storage • No tracking</p>
+            <div class="footer-line"></div>
+            <p>No logs · No storage · No tracking</p>
+            <p class="footer-brand">SECURE<span class="gold">VPN</span> © 2024</p>
         </footer>
     </div>
 
@@ -91,27 +128,38 @@
             </div>
 
             <div class="ms-stats-row">
-                <div class="ms-stat-box"><span class="ms-stat-label">Пинг</span><span class="ms-stat-val green" id="msPing"></span></div>
-                <div class="ms-stat-box"><span class="ms-stat-label">Нагрузка</span><span class="ms-stat-val" id="msLoad"></span></div>
-                <div class="ms-stat-box"><span class="ms-stat-label">Протокол</span><span class="ms-stat-val">VLESS</span></div>
-                <div class="ms-stat-box"><span class="ms-stat-label">Шифр</span><span class="ms-stat-val">Reality</span></div>
+                <div class="ms-stat-box">
+                    <span class="ms-stat-label">Пинг</span>
+                    <span class="ms-stat-val green" id="msPing"></span>
+                </div>
+                <div class="ms-stat-box">
+                    <span class="ms-stat-label">Нагрузка</span>
+                    <span class="ms-stat-val gold" id="msLoad"></span>
+                </div>
+                <div class="ms-stat-box">
+                    <span class="ms-stat-label">Протокол</span>
+                    <span class="ms-stat-val">VLESS</span>
+                </div>
+                <div class="ms-stat-box">
+                    <span class="ms-stat-label">Шифр</span>
+                    <span class="ms-stat-val">Reality</span>
+                </div>
             </div>
 
-            <!-- Ключ (показывается если есть доступ) -->
+            <!-- Ключ -->
             <div class="key-display" id="keyDisplay" style="display:none;">
                 <div class="key-label">🔑 Ваш ключ</div>
                 <div class="key-text" id="keyText"></div>
             </div>
 
-            <!-- Кнопка копирования -->
-            <button class="btn-copy" id="copyBtn" onclick="copyKey()" style="display:none;">
+            <button class="btn-gold" id="copyBtn" onclick="copyKey()" style="display:none;">
                 <span>📋 Скопировать ключ</span>
             </button>
 
             <!-- Нет доступа -->
             <div id="noAccessMsg" style="display:none; text-align:center; padding:20px;">
-                <div style="font-size:48px; margin-bottom:12px;">🔒</div>
-                <p style="color:#999; font-size:14px;">
+                <div class="lock-icon">🔒</div>
+                <p class="no-access-text">
                     Доступ только после оплаты.<br>
                     Вернитесь в бота и нажмите<br>
                     <strong>💳 Купить доступ</strong>
@@ -120,7 +168,7 @@
 
             <div class="modal-note">
                 <span>💡</span>
-                <span>Скопируйте ключ и вставьте в HAPP, V2Box, Streisand или v2rayNG</span>
+                <span>Скопируйте ключ и вставьте в приложение</span>
             </div>
 
             <button class="btn-ghost" onclick="closeModal()">Закрыть</button>
@@ -130,6 +178,6 @@
     <!-- Toast -->
     <div class="toast" id="toast"><span id="toastMsg"></span></div>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
