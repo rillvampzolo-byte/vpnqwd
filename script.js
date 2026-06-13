@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     
+    var tg = null;
+    try {
+        if (window.Telegram && window.Telegram.WebApp) {
+            tg = window.Telegram.WebApp;
+            tg.ready();
+            tg.expand();
+        }
+    } catch(e) {}
+
     var server = {
         id: 'paris',
         name: 'Франция',
@@ -9,21 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
         load: 8
     };
 
-    // Показать сервер
     var grid = document.getElementById('serversGrid');
     if (grid) {
-        grid.innerHTML = `
-            <div class="server-card" id="serverCard">
-                <span class="server-flag">${server.flag}</span>
-                <div class="server-name">${server.name}</div>
-                <div class="server-city">${server.city}</div>
-                <div class="server-tags">
-                    <span class="server-tag green">⚡ ${server.ping}ms</span>
-                    <span class="server-tag green">🟢 ${server.load}%</span>
-                </div>
-            </div>
-        `;
-        
+        grid.innerHTML = '<div class="server-card" id="serverCard"><span class="server-flag">' + server.flag + '</span><div class="server-name">' + server.name + '</div><div class="server-city">' + server.city + '</div><div class="server-tags"><span class="server-tag green">⚡ ' + server.ping + 'ms</span><span class="server-tag green">🟢 ' + server.load + '%</span></div></div>';
         document.getElementById('serverCard').addEventListener('click', openModal);
     }
 
@@ -33,46 +30,49 @@ document.addEventListener('DOMContentLoaded', function() {
             return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
         });
         
-        var key = 'vless://' + uuid + '@62.60.148.122:443?type=xhttp&security=reality&pbk=i1hQQ1DCQGQ6wswYO1X9eOhGncX2i5IRZ1h-dW23cFE&fp=random&sni=www.amazon.com&sid=19804ea488ef93&path=/&mode=auto#%F0%9F%87%AB%F0%9F%87%B7-SecureVPN-Paris';
+        var key = 'vless://' + uuid + '@62.60.148.122:443?type=xhttp&security=reality&pbk=i1hQQ1DCQGQ6wswYO1X9eOhGncX2i5IRZ1h-dW23cFE&fp=random&sni=www.amazon.com&sid=19804ea488ef93&path=/&mode=auto#SecureVPN-Paris';
         
-        // Заполняем данные сервера (с проверкой)
-        var el = document.getElementById('msFlag');
-        if (el) el.textContent = server.flag;
-        el = document.getElementById('msName');
-        if (el) el.textContent = server.name;
-        el = document.getElementById('msCity');
-        if (el) el.textContent = server.city;
-        el = document.getElementById('msPing');
-        if (el) el.textContent = server.ping + 'ms';
-        el = document.getElementById('msLoad');
-        if (el) el.textContent = server.load + '%';
+        setText('msFlag', server.flag);
+        setText('msName', server.name);
+        setText('msCity', server.city);
+        setText('msPing', server.ping + 'ms');
+        setText('msLoad', server.load + '%');
+        setText('keyText', key);
+        show('keyDisplay');
+        show('copyBtn');
         
-        // Показываем ключ (с проверкой)
-        el = document.getElementById('keyText');
-        if (el) el.textContent = key;
-        el = document.getElementById('keyDisplay');
-        if (el) el.style.display = 'block';
-        el = document.getElementById('copyBtn');
-        if (el) el.style.display = 'flex';
-        
-        // Открываем модалку
-        el = document.getElementById('modal');
-        if (el) {
-            el.classList.add('active');
+        var modal = document.getElementById('modal');
+        if (modal) {
+            modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+        }
+        
+        // Отправляем боту что ключ запрошен
+        if (tg && tg.sendData) {
+            try {
+                tg.sendData(JSON.stringify({ action: 'key_requested' }));
+            } catch(e) {}
         }
     }
 
-    // Закрыть
+    function setText(id, text) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = text;
+    }
+
+    function show(id) {
+        var el = document.getElementById(id);
+        if (el) el.style.display = 'block';
+    }
+
     window.closeModal = function() {
-        var el = document.getElementById('modal');
-        if (el) {
-            el.classList.remove('active');
+        var modal = document.getElementById('modal');
+        if (modal) {
+            modal.classList.remove('active');
             document.body.style.overflow = '';
         }
     };
 
-    // Закрытие по фону
     var modal = document.getElementById('modal');
     if (modal) {
         modal.addEventListener('click', function(e) {
@@ -80,33 +80,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Копирование
     window.copyKey = function() {
-        var keyText = document.getElementById('keyText');
-        if (!keyText) return;
-        var text = keyText.textContent;
-        
+        var el = document.getElementById('keyText');
+        if (!el) return;
+        var text = el.textContent;
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(copySuccess).catch(function() {
-                fallbackCopy(text);
+            navigator.clipboard.writeText(text).then(done).catch(function() {
+                fallback(text);
             });
         } else {
-            fallbackCopy(text);
+            fallback(text);
         }
     };
 
-    function fallbackCopy(text) {
+    function fallback(text) {
         var ta = document.createElement('textarea');
         ta.value = text;
         ta.style.position = 'fixed';
         ta.style.left = '-9999px';
         document.body.appendChild(ta);
         ta.select();
-        try { document.execCommand('copy'); copySuccess(); } catch(e) {}
+        try { document.execCommand('copy'); done(); } catch(e) {}
         document.body.removeChild(ta);
     }
 
-    function copySuccess() {
+    function done() {
         var btn = document.getElementById('copyBtn');
         if (btn) {
             btn.innerHTML = '<span>✅ Скопировано!</span>';
@@ -116,10 +114,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 btn.style.background = 'linear-gradient(135deg, #8b5cf6, #6366f1)';
             }, 2000);
         }
-        showToast('✅ Ключ скопирован!');
+        toast('✅ Ключ скопирован!');
     }
 
-    function showToast(msg) {
+    function toast(msg) {
         var t = document.getElementById('toast');
         var tm = document.getElementById('toastMsg');
         if (tm) tm.textContent = msg;
