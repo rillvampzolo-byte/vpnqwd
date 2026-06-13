@@ -4,22 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#0a0a0a">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title>SecureVPN • Premium Access</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app">
         
-        <!-- Header -->
         <header class="header">
             <div class="header-content">
                 <div class="logo">
                     <div class="logo-icon">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="url(#logoGrad)"/>
-                            <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient></defs>
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="url(#lg)"/>
+                            <defs><linearGradient id="lg" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient></defs>
                         </svg>
                     </div>
                     <div>
@@ -28,138 +25,54 @@
                     </div>
                 </div>
                 <div class="status-pill">
-                    <span class="status-dot"></span>
-                    <span>Online</span>
+                    <span class="status-dot"></span>Online
                 </div>
             </div>
         </header>
 
-        <!-- Hero -->
         <section class="hero">
             <div class="hero-badge">✨ Premium</div>
-            <h1 class="hero-title">
-                Доступ<br><span class="gradient-text">нового уровня</span>
-            </h1>
-            <p class="hero-desc">
-                Персональные конфигурации с максимальной скоростью и нулевым логированием
-            </p>
+            <h1 class="hero-title">Доступ<br><span class="gradient-text">нового уровня</span></h1>
+            <p class="hero-desc">Персональные конфигурации. Быстро, безопасно, безлимитно.</p>
             <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-value">10</span>
-                    <span class="stat-label">Gbps</span>
-                </div>
+                <div class="stat-item"><span class="stat-value">10</span><span class="stat-label">Gbps</span></div>
                 <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-value">0</span>
-                    <span class="stat-label">Logs</span>
-                </div>
+                <div class="stat-item"><span class="stat-value">0</span><span class="stat-label">Logs</span></div>
                 <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-value">∞</span>
-                    <span class="stat-label">Traffic</span>
-                </div>
+                <div class="stat-item"><span class="stat-value">∞</span><span class="stat-label">Traffic</span></div>
             </div>
         </section>
 
-        <!-- Серверы -->
         <section class="servers-section">
             <div class="section-header">
                 <h2 class="section-title">Локации</h2>
-                <div class="live-badge">
-                    <span class="live-dot"></span>Live
-                </div>
+                <div class="live-badge"><span class="live-dot"></span>Live</div>
             </div>
             <div class="servers-grid" id="serversGrid"></div>
         </section>
 
-        <!-- Как использовать -->
         <section class="how-to">
             <h2 class="section-title">Как подключиться</h2>
             <div class="steps-horizontal">
-                <div class="step-card">
-                    <div class="step-icon-wrap">
-                        <span class="step-emoji">📍</span>
-                    </div>
-                    <h4>Выберите сервер</h4>
-                    <p>Оптимальный пинг</p>
-                </div>
+                <div class="step-card"><div class="step-icon-wrap"><span class="step-emoji">📍</span></div><h4>Выберите</h4><p>Сервер</p></div>
                 <div class="step-arrow">→</div>
-                <div class="step-card">
-                    <div class="step-icon-wrap">
-                        <span class="step-emoji">📋</span>
-                    </div>
-                    <h4>Скопируйте ключ</h4>
-                    <p>Одним нажатием</p>
-                </div>
+                <div class="step-card"><div class="step-icon-wrap"><span class="step-emoji">📋</span></div><h4>Скопируйте</h4><p>Ключ</p></div>
                 <div class="step-arrow">→</div>
-                <div class="step-card">
-                    <div class="step-icon-wrap">
-                        <span class="step-emoji">📱</span>
-                    </div>
-                    <h4>Вставьте в приложение</h4>
-                    <p>HAPP • V2Box • Streisand</p>
-                </div>
+                <div class="step-card"><div class="step-icon-wrap"><span class="step-emoji">📱</span></div><h4>Вставьте</h4><p>В приложение</p></div>
             </div>
         </section>
 
-        <!-- Поддерживаемые приложения -->
         <section class="apps-supported">
-            <h2 class="section-title">Поддерживаемые приложения</h2>
+            <h2 class="section-title">Приложения</h2>
             <div class="apps-scroll">
                 <div class="app-chip">📦 HAPP</div>
                 <div class="app-chip">📁 V2Box</div>
                 <div class="app-chip">🎵 Streisand</div>
-                <div class="app-chip">🚀 Shadowrocket</div>
                 <div class="app-chip">🟣 v2rayNG</div>
-                <div class="app-chip">🟢 NapsternetV</div>
             </div>
         </section>
 
-        <!-- Инструкция по установке -->
-        <section class="install-guide">
-            <h2 class="section-title">Как вставить ключ</h2>
-            <div class="guide-cards">
-                <div class="guide-card">
-                    <div class="guide-app-icon">📦</div>
-                    <h4>HAPP / V2Box</h4>
-                    <p>Нажмите <strong>+</strong> → <strong>Import from Clipboard</strong></p>
-                </div>
-                <div class="guide-card">
-                    <div class="guide-app-icon">🎵</div>
-                    <h4>Streisand</h4>
-                    <p>Нажмите <strong>+</strong> → <strong>Import Configuration</strong></p>
-                </div>
-                <div class="guide-card">
-                    <div class="guide-app-icon">🟣</div>
-                    <h4>v2rayNG</h4>
-                    <p>Нажмите <strong>+</strong> → <strong>Import from Clipboard</strong></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Безопасность -->
-        <section class="security-card">
-            <div class="sec-icon-wrap">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                    <path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <div class="sec-content">
-                <h3>Полная приватность</h3>
-                <p>Ключи не хранятся на сервере. Мы не видим ваш трафик. Нулевое логирование.</p>
-            </div>
-        </section>
-
-        <!-- Footer -->
         <footer class="footer">
-            <div class="footer-brand">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="url(#footerGrad)"/>
-                    <defs><linearGradient id="footerGrad" x1="0" y1="0" x2="24" y2="24"><stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient></defs>
-                </svg>
-                <span>SecureVPN v2.0</span>
-            </div>
             <p>No logs • No storage • No tracking</p>
         </footer>
     </div>
@@ -178,38 +91,24 @@
             </div>
 
             <div class="ms-stats-row">
-                <div class="ms-stat-box">
-                    <span class="ms-stat-label">Пинг</span>
-                    <span class="ms-stat-val green" id="msPing"></span>
-                </div>
-                <div class="ms-stat-box">
-                    <span class="ms-stat-label">Нагрузка</span>
-                    <span class="ms-stat-val" id="msLoad"></span>
-                </div>
-                <div class="ms-stat-box">
-                    <span class="ms-stat-label">Протокол</span>
-                    <span class="ms-stat-val">VLESS</span>
-                </div>
-                <div class="ms-stat-box">
-                    <span class="ms-stat-label">Шифр</span>
-                    <span class="ms-stat-val">Reality</span>
-                </div>
+                <div class="ms-stat-box"><span class="ms-stat-label">Пинг</span><span class="ms-stat-val green" id="msPing"></span></div>
+                <div class="ms-stat-box"><span class="ms-stat-label">Нагрузка</span><span class="ms-stat-val" id="msLoad"></span></div>
+                <div class="ms-stat-box"><span class="ms-stat-label">Протокол</span><span class="ms-stat-val">VLESS</span></div>
+                <div class="ms-stat-box"><span class="ms-stat-label">Шифр</span><span class="ms-stat-val">Reality</span></div>
             </div>
 
-            <!-- Блок с ключом -->
             <div class="key-display" id="keyDisplay" style="display:none;">
                 <div class="key-label">🔑 Ваш ключ</div>
-                <div class="key-text"></div>
+                <div class="key-text" id="keyText"></div>
             </div>
 
-            <!-- Кнопка копирования -->
             <button class="btn-copy" id="copyBtn" onclick="copyKey()" style="display:none;">
                 <span>📋 Скопировать ключ</span>
             </button>
 
             <div class="modal-note">
                 <span>💡</span>
-                <span>Скопируйте ключ и вставьте в приложение: HAPP, V2Box, Streisand или v2rayNG.</span>
+                <span>Скопируйте ключ и вставьте в HAPP, V2Box, Streisand или v2rayNG</span>
             </div>
 
             <button class="btn-ghost" onclick="closeModal()">Закрыть</button>
@@ -217,9 +116,7 @@
     </div>
 
     <!-- Toast -->
-    <div class="toast" id="toast">
-        <span id="toastMsg"></span>
-    </div>
+    <div class="toast" id="toast"><span id="toastMsg"></span></div>
 
     <script src="script.js"></script>
 </body>
