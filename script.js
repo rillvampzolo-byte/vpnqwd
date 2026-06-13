@@ -1,8 +1,14 @@
 let tg = null;
-try { if (window.Telegram?.WebApp) { tg = window.Telegram.WebApp; tg.ready(); tg.expand(); } } catch(e) {}
+try { 
+    if (window.Telegram && window.Telegram.WebApp) {
+        tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();
+    }
+} catch(e) {}
 
 const servers = [
-    { id: 'paris', name: 'Франция', city: 'Париж', flag: '🇫🇷', ping: 38, load: 8, features: ['Netflix', '10Gbps', 'P2P'] }
+    { id: 'paris', name: 'Франция', city: 'Париж', flag: '🇫🇷', ping: 38, load: 8 }
 ];
 
 let selectedServer = null;
@@ -23,7 +29,7 @@ function renderServers() {
                 <span class="server-tag green">🟢 ${server.load}%</span>
             </div>
         `;
-        card.addEventListener('click', () => openModal(server));
+        card.addEventListener('click', function() { openModal(server); });
         grid.appendChild(card);
     });
 }
@@ -37,7 +43,6 @@ function openModal(server) {
     document.getElementById('msLoad').textContent = server.load + '%';
     document.getElementById('modal').classList.add('active');
     document.body.style.overflow = 'hidden';
-    if (tg?.HapticFeedback) tg.HapticFeedback.impactOccurred('medium');
 }
 
 function closeModal() {
@@ -46,28 +51,46 @@ function closeModal() {
     selectedServer = null;
 }
 
-document.getElementById('modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === document.getElementById('modal')) closeModal();
+});
 
 function connect() {
     if (!selectedServer) return;
+    
+    // Показываем успех
     document.getElementById('success').classList.add('active');
-    if (tg?.sendData) {
-        try { tg.sendData(JSON.stringify({ action: 'get_config', server: selectedServer.id, serverName: selectedServer.name })); } catch(e) {}
+    
+    // Отправляем данные
+    if (tg && tg.sendData) {
+        try {
+            tg.sendData(JSON.stringify({
+                action: 'get_config',
+                server: selectedServer.id,
+                serverName: selectedServer.name
+            }));
+        } catch(e) {
+            alert('Ошибка: ' + e.message);
+        }
     }
-    setTimeout(() => {
+    
+    // Закрываем
+    setTimeout(function() {
         document.getElementById('success').classList.remove('active');
         closeModal();
         showToast('Ключ отправлен в Telegram!');
-        if (tg) setTimeout(() => tg.close(), 600);
+        if (tg) { 
+            try { tg.close(); } catch(e) {}
+        }
     }, 1500);
 }
 
 function showToast(msg) {
-    const t = document.getElementById('toast');
+    var t = document.getElementById('toast');
     document.getElementById('toastMsg').textContent = msg;
     t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2500);
+    setTimeout(function() { t.classList.remove('show'); }, 2500);
 }
 
-document.addEventListener('DOMContentLoaded', renderServers);
-if (document.readyState !== 'loading') renderServers();
+// Запуск
+renderServers();
