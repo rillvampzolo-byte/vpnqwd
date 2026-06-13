@@ -14,7 +14,6 @@
         
         <!-- Header -->
         <header class="header">
-            <div class="header-glow"></div>
             <div class="header-content">
                 <div class="logo">
                     <div class="logo-icon">
@@ -87,10 +86,10 @@
                 <div class="step-arrow">→</div>
                 <div class="step-card">
                     <div class="step-icon-wrap">
-                        <span class="step-emoji">🔑</span>
+                        <span class="step-emoji">📋</span>
                     </div>
-                    <h4>Получите ключ</h4>
-                    <p>В Telegram чат</p>
+                    <h4>Скопируйте ключ</h4>
+                    <p>Одним нажатием</p>
                 </div>
                 <div class="step-arrow">→</div>
                 <div class="step-card">
@@ -113,6 +112,28 @@
                 <div class="app-chip">🚀 Shadowrocket</div>
                 <div class="app-chip">🟣 v2rayNG</div>
                 <div class="app-chip">🟢 NapsternetV</div>
+            </div>
+        </section>
+
+        <!-- Инструкция по установке -->
+        <section class="install-guide">
+            <h2 class="section-title">Как вставить ключ</h2>
+            <div class="guide-cards">
+                <div class="guide-card">
+                    <div class="guide-app-icon">📦</div>
+                    <h4>HAPP / V2Box</h4>
+                    <p>Нажмите <strong>+</strong> → <strong>Import from Clipboard</strong></p>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-app-icon">🎵</div>
+                    <h4>Streisand</h4>
+                    <p>Нажмите <strong>+</strong> → <strong>Import Configuration</strong></p>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-app-icon">🟣</div>
+                    <h4>v2rayNG</h4>
+                    <p>Нажмите <strong>+</strong> → <strong>Import from Clipboard</strong></p>
+                </div>
             </div>
         </section>
 
@@ -175,48 +196,23 @@
                 </div>
             </div>
 
-            <div class="modal-info-card">
-                <div class="info-row">
-                    <span>📱 Приложения</span>
-                    <span>HAPP • V2Box • Streisand • v2rayNG</span>
-                </div>
-                <div class="info-row">
-                    <span>🔒 Трафик</span>
-                    <span>Безлимитный</span>
-                </div>
-                <div class="info-row">
-                    <span>🌍 P2P</span>
-                    <span>Разрешён</span>
-                </div>
+            <!-- Блок с ключом -->
+            <div class="key-display" id="keyDisplay" style="display:none;">
+                <div class="key-label">🔑 Ваш ключ</div>
+                <div class="key-text"></div>
             </div>
+
+            <!-- Кнопка копирования -->
+            <button class="btn-copy" id="copyBtn" onclick="copyKey()" style="display:none;">
+                <span>📋 Скопировать ключ</span>
+            </button>
 
             <div class="modal-note">
                 <span>💡</span>
-                <span>Ключ придёт в Telegram. Скопируйте и вставьте в приложение.</span>
+                <span>Скопируйте ключ и вставьте в приложение: HAPP, V2Box, Streisand или v2rayNG.</span>
             </div>
 
-            <button class="btn-premium" id="btnConnect" onclick="connect()">
-                <span>Получить ключ</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </button>
-
-            <button class="btn-ghost" onclick="closeModal()">Отмена</button>
-        </div>
-    </div>
-
-    <!-- Успех -->
-    <div class="success-overlay" id="success">
-        <div class="success-card">
-            <div class="success-ring">
-                <span>✓</span>
-            </div>
-            <h2>Запрос отправлен</h2>
-            <p>Ключ появится в чате с ботом</p>
-            <div class="success-progress">
-                <div class="progress-fill"></div>
-            </div>
+            <button class="btn-ghost" onclick="closeModal()">Закрыть</button>
         </div>
     </div>
 
