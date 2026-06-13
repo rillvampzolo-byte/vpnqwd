@@ -12,12 +12,16 @@ try {
 
 // ===== ДАННЫЕ =====
 const servers = [
-    { id: 'nl', name: 'Нидерланды', city: 'Амстердам', flag: '🇳🇱', ping: 43, load: 12 },
-    { id: 'de', name: 'Германия', city: 'Франкфурт', flag: '🇩🇪', ping: 38, load: 8 },
-    { id: 'ch', name: 'Швейцария', city: 'Цюрих', flag: '🇨🇭', ping: 41, load: 5 },
-    { id: 'uk', name: 'Англия', city: 'Лондон', flag: '🇬🇧', ping: 55, load: 18 },
-    { id: 'us', name: 'США', city: 'Нью-Йорк', flag: '🇺🇸', ping: 95, load: 22 },
-    { id: 'sg', name: 'Сингапур', city: 'Сингапур', flag: '🇸🇬', ping: 120, load: 15 }
+    { 
+        id: 'paris', 
+        name: 'Франция', 
+        city: 'Париж', 
+        flag: '🇫🇷', 
+        ping: 38, 
+        load: 8,
+        description: 'Премиум локация • Низкий пинг • 10 Gbps',
+        features: ['Netflix', 'Streaming', 'P2P', 'Gaming']
+    }
 ];
 
 // Приложения с платформами
