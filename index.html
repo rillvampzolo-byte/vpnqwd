@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#0a0a0a">
     <title>SecureVPN • Premium Access</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
     <div class="app">
@@ -54,7 +54,7 @@
         <section class="how-to">
             <h2 class="section-title">Как подключиться</h2>
             <div class="steps-horizontal">
-                <div class="step-card"><div class="step-icon-wrap"><span class="step-emoji">📍</span></div><h4>Выберите</h4><p>Сервер</p></div>
+                <div class="step-card"><div class="step-icon-wrap"><span class="step-emoji">💳</span></div><h4>Оплатите</h4><p>В боте</p></div>
                 <div class="step-arrow">→</div>
                 <div class="step-card"><div class="step-icon-wrap"><span class="step-emoji">📋</span></div><h4>Скопируйте</h4><p>Ключ</p></div>
                 <div class="step-arrow">→</div>
@@ -97,14 +97,26 @@
                 <div class="ms-stat-box"><span class="ms-stat-label">Шифр</span><span class="ms-stat-val">Reality</span></div>
             </div>
 
+            <!-- Ключ (показывается если есть доступ) -->
             <div class="key-display" id="keyDisplay" style="display:none;">
                 <div class="key-label">🔑 Ваш ключ</div>
                 <div class="key-text" id="keyText"></div>
             </div>
 
+            <!-- Кнопка копирования -->
             <button class="btn-copy" id="copyBtn" onclick="copyKey()" style="display:none;">
                 <span>📋 Скопировать ключ</span>
             </button>
+
+            <!-- Нет доступа -->
+            <div id="noAccessMsg" style="display:none; text-align:center; padding:20px;">
+                <div style="font-size:48px; margin-bottom:12px;">🔒</div>
+                <p style="color:#999; font-size:14px;">
+                    Доступ только после оплаты.<br>
+                    Вернитесь в бота и нажмите<br>
+                    <strong>💳 Купить доступ</strong>
+                </p>
+            </div>
 
             <div class="modal-note">
                 <span>💡</span>
@@ -118,6 +130,6 @@
     <!-- Toast -->
     <div class="toast" id="toast"><span id="toastMsg"></span></div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>
